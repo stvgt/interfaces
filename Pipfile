@@ -1,0 +1,15 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[packages]
+Flask = ">=1,<2"
+flask-restplus = ">=0,<1"
+psycopg2 = ">=2,<3"
+requests = ">=2,<3"
+PyYAML = ">=5,<6"
+jsonschema = "*"
+
+[requires]
+python_version = "3.7"

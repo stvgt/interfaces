@@ -1,0 +1,18 @@
+apiVersion: 1
+kind: InterfaceDeclaration
+sub-component: sub1
+consumers:
+-
+  host: my_service
+  type: rest
+  values:
+    - {primary: put, secondary: /api/v1/main_entity/<int:id>/sub_entity/<int:id>}
+-
+  host: main_db_host
+  type: postgres_table
+  values:
+  -
+    primary: datasets_db
+    secondary: shard_<id>
+    tertiary: datasets
+    optional: true
