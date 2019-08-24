@@ -35,6 +35,13 @@ class ProducerRecord(ProducerValue):
     interface_type: str
 
 
+@dataclass
+class Component:
+    name: str
+    consumers: List[ConsumerRecord]
+    producers: List[ProducerRecord]
+
+
 class Parser():
     API_VERSION = 'apiVersion'
     KIND = 'kind'

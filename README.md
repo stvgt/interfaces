@@ -27,9 +27,6 @@ components.
 using curl as part of the ci/cd.
 - The server responds whether the change is possible (200) or not (409).
 
-- TO BE DONE: The server also provides a list of interfaces. This is
-used to visualize the whole dependency graph or just a filtered subset.
-
 ## Example
 
 **Request:** I am Alice. I produce milk.
@@ -85,12 +82,13 @@ Example: [test/testdata/mixed.yaml](test/testdata/mixed.yaml)
   - unique (sub-component, host, type, values/primary, values/secondary, values/tertiary)
 
 => The file provides lots of flexibility.
-It is not given that the http method is stored as primary as in the examples.
-So it is important to define how to use the individual fields before one starts.
+The examples use the "primary" field to store the http method like "GET" or "POST".
+The schema provides the flexibility to structure it in a different way and store the http method in a different field, or together in a field with the route.
+This makes it important to define how to use the individual fields before one starts.
 
 ### Use curl to upload the file in a build step. Example
 - component = "my_component"
 - declaration filename: "interface.yaml"
-- call: ` curl -X PUT "http://127.0.0.1:5000/api/v1/components/my_component/interfaces/yaml" -H  "accept: application/json" -H  "Content-Type: multipart/form-data" -F "yaml_file=@interface.yaml"
+- call: `curl -X PUT "http://127.0.0.1:5000/api/v1/components/my_component/interfaces/yaml" -H  "accept: application/json" -H  "Content-Type: multipart/form-data" -F "yaml_file=@interface.yaml"
 `
   

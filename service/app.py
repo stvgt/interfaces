@@ -2,7 +2,11 @@ from flask import Flask
 from service.api import api_blueprint
 from service.config import get_config
 from service.database import teardown_db_connection
+import logging
+from flask.logging import default_handler
 
+root = logging.getLogger()
+root.addHandler(default_handler)
 
 def teardown_appcontext(exception=None):
     teardown_db_connection(exception)

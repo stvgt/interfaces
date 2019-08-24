@@ -16,7 +16,7 @@ class ProductionConfig(DefaultConfig):
 
 class TestConfig(DefaultConfig):
     POSTGRES_DB_NAME = os.environ.get('POSTGRES_DB_NAME', 'interfaces_test')
-    TESTING=True
+    TESTING = True
 
 
 _CONFIG = None
